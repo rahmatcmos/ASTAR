@@ -1,0 +1,18 @@
+A-Star(Graph graph, Node start, Node goal, HeuristicFunction h)
+ 	O make_priority_queue(startNode) // open list
+ 	Cmake_hash_table // closed list
+ 
+ 	While O not empty loop
+ 		n  O.remove_front() //O is sorted by f(n)=g(n)+h(n) values
+ 		If goal (n) return n
+		If n is found on C  continue
+ 
+ 		//otherwise
+		S  successors (n)
+		For each node s in S
+			Set s.g=n.g+w(n,s)
+ 			Set s.parent=n //for path extraction
+			Set s.h=h(s) //to calculate f
+ 			Os
+ 		Cn
+Return null //no goal found
