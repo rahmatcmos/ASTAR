@@ -220,24 +220,7 @@ public class MainActivity extends MapActivity {
 		return new Marker(geoPoint, Marker.boundCenterBottom(drawable));
 	}
 
-	private Polyline createPolyline(AStarResponse response) {
-		int points = response.points().size();
-		List<GeoPoint> geoPoints = new ArrayList<GeoPoint>(points);
-		PointList tmp = response.points();
-		for (int i = 0; i < response.points().size(); i++) {
-			geoPoints.add(new GeoPoint(tmp.latitude(i), tmp.longitude(i)));
-		}
-		PolygonalChain polygonalChain = new PolygonalChain(geoPoints);
-		Paint paintStroke = new Paint(Paint.ANTI_ALIAS_FLAG);
-		paintStroke.setStyle(Paint.Style.STROKE);
-		paintStroke.setColor(Color.BLUE);
-		paintStroke.setAlpha(128);
-		paintStroke.setStrokeWidth(8);
-		paintStroke
-				.setPathEffect(new DashPathEffect(new float[] { 25, 15 }, 0));
 
-		return new Polyline(polygonalChain, paintStroke);
-	}
 
 	private static Polyline createPolyline(GeoPoint from, GeoPoint to) {
 		List<GeoPoint> geoPoints = Arrays.asList(from, to);
