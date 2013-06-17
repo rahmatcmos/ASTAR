@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="src-parser"/>
+	<classpathentry excluding="id/ac/itats/skripsi/ziez/util/parsing/model/" kind="src" path="src-parser"/>
 	<classpathentry kind="src" path="src-algoritma"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>

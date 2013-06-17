@@ -4,6 +4,8 @@ import id.ac.itats.skripsi.ziez.astar.AStarRequest;
 import id.ac.itats.skripsi.ziez.astar.AStarResponse;
 import id.ac.itats.skripsi.ziez.astar.AStarRouter;
 import id.ac.itats.skripsi.ziez.astar.PointList;
+import id.ac.itats.skripsi.ziez.astar.graph.builder.GraphBuilder;
+import id.ac.itats.skripsi.ziez.astar.model.Graph;
 import id.ac.itats.skripsi.ziez.astar.util.StopWatch;
 
 import java.io.File;
@@ -41,7 +43,10 @@ public class MainActivity extends MapActivity {
 	private MapView mapView;
 	private static final File MAP_FILE = new File(Environment
 			.getExternalStorageDirectory().getPath(), "surabaya.map");
-
+	private static final String OSM_FILE = "file:///"
+			+ Environment.getExternalStorageDirectory().getPath()
+			+ "/surabaya.osm";
+	
 	private AStarRouter astar;
 
 	private ListOverlay pathOverlay = new ListOverlay();
@@ -94,12 +99,6 @@ public class MainActivity extends MapActivity {
 			}
 			return true;
 
-			// Marker marker = createMarker(tmpPoint, R.drawable.person);
-			// listOverlay.getOverlayItems().add(marker);
-			//
-			// mapView.redraw();
-			//
-			// return true;
 		}
 
 	};
@@ -132,7 +131,11 @@ public class MainActivity extends MapActivity {
 
 		setContentView(mapView);
 		mapView.getOverlays().add(pathOverlay);
+		
+		
 	}
+
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -143,7 +146,37 @@ public class MainActivity extends MapActivity {
 		return true;
 	}
 
-	// TODO SHORTEST PATH
+	//FIXME BUILDGRAPH...
+//	private void buildGraph(final String OSMFile) {
+//		log("build graph ...");
+//		
+//		new AsyncTask<Void, Void, Graph>(){
+//			
+//			@Override
+//			protected Graph doInBackground(Void... params) {
+//			
+//				Graph graph = null;
+//				GraphBuilder graphBuilder;
+//				try {
+//					graphBuilder = new GraphBuilder(OSMFile);
+//					graph = graphBuilder.getGraph();
+//				} catch (Exception e) {
+//				
+//					e.printStackTrace();
+//				}
+//				
+//				return graph;
+//			}
+//			
+//			protected void onPostExecute(Graph graph) {
+//				logUser(""+graph.getSize());
+//			}
+//		
+//		}.execute();
+//		
+//	}
+	
+	// FIXME SHORTEST PATH
 	public void calcPath(final double fromLat, final double fromLon,
 			final double toLat, final double toLon) {
 		log("calculating path ...");

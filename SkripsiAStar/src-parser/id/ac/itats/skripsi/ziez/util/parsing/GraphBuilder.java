@@ -1,7 +1,7 @@
 package id.ac.itats.skripsi.ziez.util.parsing;
 
+import id.ac.itats.skripsi.ziez.astar.model.Graph;
 import id.ac.itats.skripsi.ziez.util.parsing.engine.OSMParser;
-import id.ac.itats.skripsi.ziez.util.parsing.model.Graph;
 import id.ac.itats.skripsi.ziez.util.parsing.osm.OSM;
 import id.ac.itats.skripsi.ziez.util.parsing.osm.OSMNode;
 import id.ac.itats.skripsi.ziez.util.parsing.osm.Way;
